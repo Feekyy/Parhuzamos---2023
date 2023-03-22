@@ -10,6 +10,14 @@ int main()
   longWrite(longs);
   floatWrite(floats);
   
+  intRead(ints);
+  longRead(longs);
+  floatRead(floats);
+  
+  for (int i = 0; i < 10; i++)
+  {
+      printf("%d\t", ints[i]);
+  }
   
 }
 
@@ -52,14 +60,32 @@ void floatWrite(float floats[])
   fclose(fp);
 }
 
-int[] intRead()
+void intRead(int ints[])
 {
-    int ints2[10];
-    File *fp = fopen("ints.txt", "r+");
+    FILE *fp = fopen("ints.txt", "wr");
     for (int i = 0; i < 10; i++)
     {
-        fscanf(fp, "%d", &ints2[i]);
+        fscanf(fp, "%d", &ints[i]);
     }
-    fprintf("READED");
+    fclose(fp);
+}
+
+void longRead(long longs[])
+{
+    FILE *fp = fopen("longs.txt", "wr");
+    for (int i = 0; i < 10; i++)
+    {
+        fscanf(fp, "%d", &longs[i]);
+    }
+    fclose(fp);
+}
+
+void floatRead(float floats[])
+{
+    FILE *fp = fopen("floats.txt", "wr");
+    for (int i = 0; i < 10; i++)
+    {
+        fscanf(fp, "%d", &floats[i]);
+    }
     fclose(fp);
 }
